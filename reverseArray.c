@@ -11,6 +11,16 @@ void reverseArray(int n, int *array, int *reverse){
         j--;
     }
 }
+int * reverseAnother( int num, int *array){
+    int i, j;
+    int *reverse = (int*) malloc(sizeof(int)*num);
+    j = (num -1);
+    for ( i = 0; i < num; i ++){
+        reverse[i] = array[j];
+        j--;
+    }
+    return reverse; 
+}
 void readArray(int n, int *array){
     int i = 0;
     for (i; i < n; i++){
@@ -29,8 +39,8 @@ int main(){
     int n;
     scanf("%d%*c", &n);
     array = (int*) malloc(sizeof(int)*n);
-    reverse = (int*) malloc(sizeof(int)*n);
+    //reverse = (int*) malloc(sizeof(int)*n);
     readArray(n, array);
-    reverseArray(n, array, reverse);
-    showArray(n,reverse);
+    //reverseArray(n, array, reverse);
+    showArray(n,reverseAnother(n, array));
 }
